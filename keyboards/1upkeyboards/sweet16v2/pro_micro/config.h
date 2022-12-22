@@ -18,7 +18,10 @@
 
 #include "config_common.h"
 
+
 #define DYNAMIC_KEYMAP_LAYER_COUNT 10
+
+#define MIDI_BASIC
 
 #define RGB_DI_PIN D7
 #define RGB_MATRIX_LED_COUNT 20
@@ -57,6 +60,8 @@
 #define ENABLE_RGB_MATRIX_PIXEL_RAIN
 #define ENABLE_RGB_MATRIX_PIXEL_FLOW
 #define ENABLE_RGB_MATRIX_PIXEL_FRACTAL
+
+#if !defined(MIDI_BASIC) && !defined(MIDI_ADVANCED)
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
 #define ENABLE_RGB_MATRIX_TYPING_HEATMAP
 #define ENABLE_RGB_MATRIX_DIGITAL_RAIN
@@ -73,6 +78,7 @@
 #define ENABLE_RGB_MATRIX_MULTISPLASH
 #define ENABLE_RGB_MATRIX_SOLID_SPLASH
 #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+#endif
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
@@ -82,3 +88,4 @@
 /* Bootmagic Lite key configuration */
 #define BOOTMAGIC_LITE_ROW 0
 #define BOOTMAGIC_LITE_COLUMN 0
+
