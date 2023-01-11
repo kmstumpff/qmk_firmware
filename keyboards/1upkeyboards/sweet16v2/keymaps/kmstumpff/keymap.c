@@ -16,99 +16,101 @@
 
 #include QMK_KEYBOARD_H
 
+#define RGB_CUSTOM_LAYERS true
+#define RGB_HASS_BLUE 0x03, 0x8f, 0xc7
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // General
   [0] = LAYOUT_ortho_4x4(
-    KC_MUTE,    KC_TRNS,    KC_TRNS,    KC_MPLY,
-    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-    DF(1),      DF(2),      DF(3),      DF(4)
+    _______,    EE_CLR,     QK_BOOT,    KC_MUTE,
+    _______,    _______,    _______,    KC_MPLY,
+    _______,    _______,    _______,    KC_MNXT,
+    _______,    _______,    _______,    KC_MPRV
   ),
 
   // Lighting
   [1] = LAYOUT_ortho_4x4(
-    RGB_TOG,   RGB_HUI,    RGB_SAI,    RGB_VAI,
-    RGB_MOD,   RGB_HUD,    RGB_SAD,    RGB_VAD,
-    RGB_SPD,   RGB_SPI,    KC_TRNS,    KC_TRNS,
-    DF(0),     KC_TRNS,    EE_CLR,     QK_BOOT
+    RGB_TOG,   RGB_SPD,    RGB_SPI,    _______,
+    _______,   _______,    _______,    _______,
+    RGB_MOD,   RGB_HUI,    RGB_SAI,    BL_INC,
+    RGB_RMOD,  RGB_HUD,    RGB_SAD,    BL_DEC
   ),
 
-  // Keypad ( I dont need this...)
   [2] = LAYOUT_ortho_4x4(
-    KC_P7,    KC_P8,    KC_P9,    KC_PMNS,
-    KC_P4,    KC_P5,    KC_P6,    KC_PPLS,
-    KC_P1,    KC_P2,    KC_P3,    KC_PSLS,
-    DF(0),    KC_P0,    KC_PDOT,  KC_PENT
+    _______,   XXXXXXX,    XXXXXXX,    _______,
+    KC_F21,    KC_F22,     KC_F23,     KC_F24,
+    KC_F17,    KC_F18,     KC_F19,     KC_F20,
+    KC_F13,    KC_F14,     KC_F15,     KC_F16
   ),
 
   [3] = LAYOUT_ortho_4x4(
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    DF(0),   KC_TRNS,    KC_TRNS,    KC_TRNS
+    _______,       UC(0x40B),      UC(0x30C4),    _______,
+    UC(0x2B88),    UC(0x2B89),     UC(0x2B8A),    UC(0x2B8B),
+    UC(0x2B84),    UC(0x2B85),     UC(0x2B86),    UC(0x2B87),
+    UC(0x2B80),    UC(0x2B81),     UC(0x2B82),    UC(0x2B83)
   ),
 
   // MIDI
   [4] = LAYOUT_ortho_4x4(
-    MI_TOGG,  MI_OCTD,  MI_OCTU,  DF(0),
-    MI_C,     MI_Cs,    MI_D,     MI_Ds,
+    MI_TOGG,  MI_OCTD,  MI_OCTU,  _______,
+    MI_Gs,    MI_A,     MI_As,    MI_B,
     MI_E,     MI_F,     MI_Fs,    MI_G,
-    MI_Gs,    MI_A,     MI_As,    MI_B
+    MI_C,     MI_Cs,    MI_D,     MI_Ds
   ),
 
   [5] = LAYOUT_ortho_4x4(
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
+    _______,  JS_12,  JS_13,  _______,
+    JS_8,     JS_9,   JS_10,  JS_11,
+    JS_4,     JS_5,   JS_6,   JS_7,
+    JS_0,     JS_1,   JS_2,   JS_3
   ),
 
-  [6] = LAYOUT_ortho_4x4(
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
-  ),
+//   [6] = LAYOUT_ortho_4x4(
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______
+//   ),
 
-  [7] = LAYOUT_ortho_4x4(
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
-  ),
+//   [7] = LAYOUT_ortho_4x4(
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______
+//   ),
 
-  [8] = LAYOUT_ortho_4x4(
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
-  ),
+//   [8] = LAYOUT_ortho_4x4(
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______
+//   ),
 
-  [9] = LAYOUT_ortho_4x4(
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
-  ),
+//   [9] = LAYOUT_ortho_4x4(
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______,
+//     _______,   _______,    _______,    _______
+//   ),
 };
 
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [0] =  { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),      ENCODER_CCW_CW(KC_MPRV, KC_MNXT)  },
-    [1] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(RGB_VAD, RGB_VAI)  },
-    [2] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
-    [3] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
-    [4] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
-    [5] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
-    [6] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
-    [7] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
-    [8] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
-    [9] =  { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),      ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  }
+    [0] =  { ENCODER_CCW_CW(DF(4), DF(1)),      ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  },
+    [1] =  { ENCODER_CCW_CW(DF(0), DF(2)),      ENCODER_CCW_CW(RGB_VAD, RGB_VAI)  },
+    [2] =  { ENCODER_CCW_CW(DF(1), DF(3)),      ENCODER_CCW_CW(_______, _______)  },
+    [3] =  { ENCODER_CCW_CW(DF(2), DF(4)),      ENCODER_CCW_CW(_______, _______)  },
+    [4] =  { ENCODER_CCW_CW(DF(3), DF(0)),      ENCODER_CCW_CW(_______, _______)  },
+    [5] =  { ENCODER_CCW_CW(_______, _______),      ENCODER_CCW_CW(_______, _______)  },
+    // [6] =  { ENCODER_CCW_CW(_______, _______),      ENCODER_CCW_CW(_______, _______)  },
+    // [7] =  { ENCODER_CCW_CW(_______, _______),      ENCODER_CCW_CW(_______, _______)  },
+    // [8] =  { ENCODER_CCW_CW(_______, _______),      ENCODER_CCW_CW(_______, _______)  },
+    // [9] =  { ENCODER_CCW_CW(_______, _______),      ENCODER_CCW_CW(_______, _______)  }
 };
 #endif
 
-#ifdef RGB_MATRIX_ENABLE
+#if defined(RGB_MATRIX_ENABLE) && defined(RGB_CUSTOM_LAYERS)
 // bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 //     for (uint8_t i = led_min; i < led_max; i++) {
 //         switch(get_highest_layer(layer_state|default_layer_state)) {
@@ -176,14 +178,17 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
     for (uint8_t i = 0; i < NUM_LIGHTS; i++) {
         switch(get_highest_layer(layer_state|default_layer_state)) {
-            case 4:
-                rgb_matrix_set_color(BACKLIGHTS[i], RGB_CYAN);
+            case 5:
+                rgb_matrix_set_color(BACKLIGHTS[i], RGB_GREEN);
                 break;
-            case 3:
+            case 4:
                 rgb_matrix_set_color(BACKLIGHTS[i], RGB_YELLOW);
                 break;
+            case 3:
+                rgb_matrix_set_color(BACKLIGHTS[i], RGB_ORANGE);
+                break;
             case 2:
-                rgb_matrix_set_color(BACKLIGHTS[i], RGB_GREEN);
+                rgb_matrix_set_color(BACKLIGHTS[i], RGB_HASS_BLUE);
                 break;
             case 1:
                 rgb_matrix_set_color(BACKLIGHTS[i], RGB_RED);
