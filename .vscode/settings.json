@@ -39,5 +39,8 @@
             "args": ["--login"]
         }
     },
-    "terminal.integrated.cursorStyle": "line"
+    "terminal.integrated.cursorStyle": "line",
+    "clangd.arguments": [
+        "--header-insertion=never"
+    ]
 }
